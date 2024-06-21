@@ -16,7 +16,7 @@ class Taximetro:
         self.tarifa_base = 2.5
         self.reset()
         logger.info ("Taxímetro inicializando con tarifas base.")
-        logger.info ("Taxímetro inicializando con tarifas base.")
+        
 
     def reset(self):
         self.en_marcha = False
@@ -38,7 +38,7 @@ class Taximetro:
         self.ultima_hora = self.hora_inicio
         st.session_state.messages.append(f"{ahora()} - Inicia la carrera del taxi.")
         logger.info ("Carrera iniciada.")
-        logger.info ("Carrera iniciada.")
+        
         
     def mover(self):
         if self.en_marcha and not self.en_movimiento:
@@ -47,8 +47,7 @@ class Taximetro:
             self.ultima_hora = time.time()
             st.session_state.messages.append(f"{ahora()} - El taxi se ha puesto en marcha.")
             logger.info ("El taxi se ha puesto en marcha.")
-            logger.info ("El taxi se ha puesto en marcha.")
-
+            
     def parar(self):
         if self.en_marcha and self.en_movimiento:
             self.actualizar_tarifa()
@@ -153,10 +152,10 @@ def main():
         """
         <style>
             .stApp {
-                background-color: #ADD8E6;  /* Fondo azul claro */
+                background-color: #FEE338;  /* Fondo amarillo mate */ 
             }
             .css-1d391kg {  /* Sidebar */
-                background-color: #FFFF00;  /* Fondo amarillo intenso */
+                 background-color: #FEE338;  /* Fondo amarillo mate */
             }
             .stTextInput, .stButton, .stNumberInput {
                 margin-bottom: 10px;  /* Espacio entre los elementos del formulario */
@@ -193,7 +192,7 @@ def main():
                     submit_button = st.form_submit_button(label="Login")
                     if submit_button:
                         if usuario in usuarios and usuarios[usuario] == password:
-                        #if usuario in usuarios and bcrypt.checkpw(password.encode('utf-8'), usuarios[usuario]):
+                       
                             st.session_state.logged_in = True
                             st.success("Login realizado con éxito")
                         else:
@@ -242,8 +241,8 @@ def main():
                 st.markdown(html_ayuda, unsafe_allow_html=True)
                 
             elif menu_selection == "Ver Log":
-                st.markdown("### Log del Sistema")
-                st.text_area("Log del sistema", value=leer_log(), height=200)
+                st.markdown("### Visualización del Log")
+                st.text_area("", value=leer_log(), height=200)
 
             else:
                 col1, col2, col3, col4 = st.columns(4)
